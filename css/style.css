@@ -1,0 +1,217 @@
+:root {
+    --bg-color-start: #f8c8d8; 
+    --bg-color-end: #6187cc;   
+    --text-color: #ffffff;
+    --button-bg: rgba(255, 255, 255, 0.2); 
+    --glass-blur: 10px;
+    --page-padding: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px var(--page-padding) 10px;
+    font-size: 14px;
+    position: relative;
+    z-index: 10;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+.menu-icon span {
+    height: 2px;
+    background: var(--text-color);
+    margin: 3px 0;
+    border-radius: 1px;
+}
+
+.nav-links {
+    margin-right: 0; 
+}
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px; 
+    padding: 5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.nav-links a:first-child {
+    margin-left: 0;
+}
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+.logo-placeholder .btn-logo {
+    background: var(--button-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.content-section-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 var(--page-padding);
+    height: 50%;
+    z-index: 5;
+}
+
+.text-content {
+    max-width: 500px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.description-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    max-width: 450px;
+}
+
+.btn-read-more {
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--button-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-read-more:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.weather-icon-container {
+    position: relative; 
+    margin-right: -120px; 
+    margin-top: -100px; 
+    transform: scale(1.2); 
+    z-index: 5; 
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    line-height: 0; 
+}
+
+.weather-icon-img {
+    width: 360px; 
+    height: auto;
+    display: block;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: -200px;
+    width: 500px;
+    height: 800px;
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 40% 60% 70% 30% / 30% 30% 70% 70%;
+    transform: rotate(-30deg);
+    z-index: 0;
+}
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 20px 10px;
+    }
+    .content-section-wrapper {
+        padding: 0 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+    }
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .header-right {
+        margin-left: auto;
+    }
+    .nav-links {
+        display: none; 
+    }
+    .text-content {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+    .weather-icon-container {
+        transform: scale(0.7); 
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
